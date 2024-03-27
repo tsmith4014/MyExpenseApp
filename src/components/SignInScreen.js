@@ -1,7 +1,7 @@
 // SignInScreen.js
 import React, {useState} from 'react';
 import {View, TextInput, Button, StyleSheet, Alert} from 'react-native';
-import {signIn} from './authServices'; // Ensure signIn is correctly returning the session
+import {signIn} from '../services/authServices'; // Ensure signIn is correctly returning the session
 
 const SignInScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
