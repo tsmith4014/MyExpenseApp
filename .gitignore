@@ -64,3 +64,14 @@ yarn-error.log
 
 # testing
 /coverage
+
+.env
+cmds_troubleshoot.txt
+aws_resources/api_gateway_lambdainvoke.txt
+Podfile.lock
+ios/MyExpenseApp.xcworkspace/contents.xcworkspacedata
+ios/MyExpenseApp.xcodeproj/project.pbxproj
+ios/MyExpenseApp.xcodeproj/project.pbxproj
+package.json
+package-lock.json
+.gitignore

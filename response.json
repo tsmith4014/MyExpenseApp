@@ -1,0 +1,1 @@
+{"errorMessage": "'school'", "errorType": "KeyError", "stackTrace": ["  File \"/var/task/lambda_function.py\", line 9, in lambda_handler\n    'school': event['school'],\n"]}
