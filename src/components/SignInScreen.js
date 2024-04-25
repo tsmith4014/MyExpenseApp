@@ -11,6 +11,7 @@ const SignInScreen = ({navigation}) => {
     try {
       const session = await signIn(username, password);
       const token = session.AuthenticationResult.IdToken; // Obtain the token
+      console.log('This is the Cognito Token:', token);
       navigation.navigate('FormScreen', {token}); // Pass the token as a parameter
     } catch (error) {
       Alert.alert('Sign In Error', error.message);
