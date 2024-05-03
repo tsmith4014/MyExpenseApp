@@ -98,7 +98,9 @@ const FormScreen = ({route}) => {
       </View>
 
       <View style={styles.formGroup}>
-        <Text style={styles.label}>Travel (includes per diem):</Text>
+        <Text style={styles.label}>
+          Travel (includes per diem *not implemnted*):
+        </Text>
         <Switch value={travel} onValueChange={setTravel} />
       </View>
 
