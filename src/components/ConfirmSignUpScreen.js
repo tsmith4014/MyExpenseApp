@@ -3,7 +3,7 @@ import {View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 import {confirmUser, resendConfirmationCode} from '../services/authServices';
 
 const ConfirmSignUpScreen = ({route, navigation}) => {
-  const {username} = route.params; // Ensure this matches the parameter passed from the previous screen
+  const {username} = route.params;
   const [code, setCode] = useState('');
 
   const handleConfirmSignUp = async () => {
