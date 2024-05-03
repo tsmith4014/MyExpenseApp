@@ -3,6 +3,12 @@ import React, {useState} from 'react';
 import {View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 import {signIn} from '../services/authServices'; // Ensure signIn is correctly returning the session
 
+/**
+ * Sign in screen component.
+ *
+ * @param {object} navigation - The navigation object.
+ * @returns {JSX.Element} The sign in screen component.
+ */
 const SignInScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +18,7 @@ const SignInScreen = ({navigation}) => {
       const session = await signIn(username, password);
       const token = session.AuthenticationResult.IdToken; // Obtain the token
       console.log('This is the Cognito Token:', token);
-      navigation.navigate('FormScreen', {token}); // Pass the token as a parameter
+      navigation.navigate('Travel Form Screen', {token}); // Pass the token as a parameter
     } catch (error) {
       Alert.alert('Sign In Error', error.message);
     }

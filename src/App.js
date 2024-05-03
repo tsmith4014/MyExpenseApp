@@ -4,21 +4,30 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignInScreen from './components/SignInScreen';
 import FormScreen from './components/FormScreen';
+import SignUpScreen from './components/SignUpScreen';
+import ConfirmSignUpScreen from './components/ConfirmSignUpScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="FormScreen" component={FormScreen} />
+      <Stack.Navigator initialRouteName="Sign Up">
+        <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />
+        <Stack.Screen
+          name="Confirm Sign Up Screen"
+          component={ConfirmSignUpScreen}
+        />
+        <Stack.Screen name="Sign In Screen" component={SignInScreen} />
+        <Stack.Screen name="Travel Form Screen" component={FormScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
+
+/////////////////////////////////////////////////////////
 
 // import React, {useState} from 'react';
 // import {View, Text, Button, ActivityIndicator} from 'react-native';

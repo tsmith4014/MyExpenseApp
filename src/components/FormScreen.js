@@ -99,7 +99,7 @@ const FormScreen = ({route}) => {
 
       <View style={styles.formGroup}>
         <Text style={styles.label}>
-          Travel (includes per diem *not implemnted*):
+          Travel (includes per diem *not implemented*):
         </Text>
         <Switch value={travel} onValueChange={setTravel} />
       </View>
