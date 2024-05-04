@@ -6,6 +6,7 @@ import SignInScreen from './components/SignInScreen';
 import FormScreen from './components/FormScreen';
 import SignUpScreen from './components/SignUpScreen';
 import ConfirmSignUpScreen from './components/ConfirmSignUpScreen';
+import ReceiptUploadScreen from './components/ReceiptUploadScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const App = () => {
         />
         <Stack.Screen name="Sign In Screen" component={SignInScreen} />
         <Stack.Screen name="Travel Form Screen" component={FormScreen} />
+        <Stack.Screen name="Receipt Upload" component={ReceiptUploadScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
