@@ -1,12 +1,13 @@
 // ReceiptUploadScreen.js
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {View, Button, StyleSheet, Alert} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import axios from 'axios';
 import Config from 'react-native-config';
+import AuthContext from '../services/AuthContext';
 
 const ReceiptUploadScreen = ({route}) => {
-  const {token} = route.params;
+  const {token} = useContext(AuthContext);
 
   const handleTakePhoto = () => {
     const options = {
@@ -30,19 +31,19 @@ const ReceiptUploadScreen = ({route}) => {
     const formData = new FormData();
     formData.append('file', {
       name: response.fileName,
-      type: response.type,
+      type: response.fileName.endsWith('.png') ? 'image/png' : 'image/jpeg',
       uri: response.uri,
     });
     formData.append(
       'metadata',
       JSON.stringify({
-        date: new Date().toISOString(), // example metadata
-        userId: 'your-user-id', // obtain from cognito context or pass along
+        date: new Date().toISOString(),
+        userId: 'actual-user-id', // replace with actual user ID
       }),
     );
 
     axios
-      .post(`${Config.API_ENDPOINT}/upload`, formData, {
+      .post(Config.IMAGE_UPLOAD_ENDPOINT, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

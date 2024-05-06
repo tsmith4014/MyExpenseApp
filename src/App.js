@@ -7,23 +7,28 @@ import FormScreen from './components/FormScreen';
 import SignUpScreen from './components/SignUpScreen';
 import ConfirmSignUpScreen from './components/ConfirmSignUpScreen';
 import ReceiptUploadScreen from './components/ReceiptUploadScreen';
+import HomeScreen from './components/HomeScreen';
+import {AuthProvider} from './services/AuthContext';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Sign Up">
-        <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />
-        <Stack.Screen
-          name="Confirm Sign Up Screen"
-          component={ConfirmSignUpScreen}
-        />
-        <Stack.Screen name="Sign In Screen" component={SignInScreen} />
-        <Stack.Screen name="Travel Form Screen" component={FormScreen} />
-        <Stack.Screen name="Receipt Upload" component={ReceiptUploadScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />
+          <Stack.Screen
+            name="Confirm Sign Up Screen"
+            component={ConfirmSignUpScreen}
+          />
+          <Stack.Screen name="Sign In Screen" component={SignInScreen} />
+          <Stack.Screen name="Travel Form Screen" component={FormScreen} />
+          <Stack.Screen name="Receipt Upload" component={ReceiptUploadScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 

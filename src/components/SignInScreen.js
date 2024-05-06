@@ -1,7 +1,8 @@
 // SignInScreen.js
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 import {signIn} from '../services/authServices'; // Ensure signIn is correctly returning the session
+import AuthContext from '../services/AuthContext'; // Import the AuthContext
 
 /**
  * Sign in screen component.
@@ -12,13 +13,15 @@ import {signIn} from '../services/authServices'; // Ensure signIn is correctly r
 const SignInScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const {setToken} = useContext(AuthContext); // Use the setToken function from context
 
   const handleSignIn = async () => {
     try {
       const session = await signIn(username, password);
       const token = session.AuthenticationResult.IdToken; // Obtain the token
       console.log('This is the Cognito Token:', token);
-      navigation.navigate('Travel Form Screen', {token}); // Pass the token as a parameter
+      setToken(token); // Save the token in context
+      navigation.navigate('Home'); // No need to pass the token as a parameter
     } catch (error) {
       Alert.alert('Sign In Error', error.message);
     }

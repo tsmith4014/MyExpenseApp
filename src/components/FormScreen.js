@@ -1,6 +1,6 @@
 // // FormScreen.js
 import Config from 'react-native-config';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   ScrollView,
   View,
@@ -12,9 +12,10 @@ import {
   Alert,
 } from 'react-native';
 import axios from 'axios';
+import AuthContext from '../services/AuthContext';
 
 const FormScreen = ({route}) => {
-  const {token} = route.params; // Assuming the token is passed as a navigation parameter
+  const {token} = useContext(AuthContext);
 
   const [employeeDepartment, setEmployeeDepartment] = useState('');
   const [school, setSchool] = useState('');

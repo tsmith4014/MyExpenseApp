@@ -75,6 +75,11 @@ const SignUpScreen = ({navigation}) => {
         autoCapitalize="none" // Disable automatic capitalization
       />
       <Button title="Sign Up" onPress={handleSignUp} />
+
+      <Button
+        title="Already have an account? Sign In"
+        onPress={() => navigation.navigate('Sign In Screen')}
+      />
     </View>
   );
 };
