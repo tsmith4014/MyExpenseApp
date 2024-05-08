@@ -1,10 +1,11 @@
 // HomeScreen.js
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Button} from 'react-native';
 import AuthContext from '../services/AuthContext';
 
 const HomeScreen = ({navigation}) => {
-  console.log({token});
+  const {token} = useContext(AuthContext);
+  console.log(`here is the token ${token}`);
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button

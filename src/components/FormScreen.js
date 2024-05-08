@@ -1,4 +1,4 @@
-// // FormScreen.js
+// // FormScreen.js this code works and hits the API Gateway endpoint and lambda tiggers correctly
 import Config from 'react-native-config';
 import React, {useState, useContext} from 'react';
 import {
